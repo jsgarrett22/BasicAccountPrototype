@@ -5,12 +5,6 @@ namespace AccountTest
     public class AccountTests
     {
         [Fact]
-        public void FirstUnitTest()
-        {
-            Assert.True(true);
-        }
-
-        [Fact]
         public void TestPositiveWithdrawal()
         {
             // $50.00 over withdrawal

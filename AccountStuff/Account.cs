@@ -16,6 +16,7 @@
         public string Owner { get; set; }
         public decimal Balance { get; set; }
         public bool OverWithdrawn { get; set; }
+        public List<Transaction> Transactions = new List<Transaction>();
 
         public Account(string accountNumber, string owner, decimal initialBalance)
         {
@@ -26,6 +27,7 @@
 
         public void Withdraw(decimal amount)
         {
+            Transaction newTransaction = new Transaction(DateTime.Now, amount);
             if (amount > 0)
             {
                 if (Balance - amount < 0)
@@ -47,6 +49,7 @@
 
         public void Deposit(decimal amount)
         {
+            Transaction newTransaction = new Transaction(DateTime.Now, amount);
             if (amount >= 10000)
             {
                 throw new Exception("Amount to deposit must be under 10,000.");
